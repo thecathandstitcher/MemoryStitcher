@@ -86,11 +86,21 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
 
+        .gallery-item a {
+            cursor: pointer;
+            display: block;
+        }
+
         .gallery-item img {
             width: 100%;
             height: 300px;
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item a:hover img {
+            opacity: 0.9;
         }
 
         .item-description {
@@ -110,16 +120,55 @@
             font-size: 0.95em;
         }
 
-        /* Placeholder for images */
-        .placeholder-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+
+        .lightbox.active {
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            animation: zoomIn 0.3s;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
             color: white;
-            font-size: 1.5em;
-            text-align: center;
-            padding: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: #bbb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); }
+            to { transform: scale(1); }
         }
 
         .telegram-cta {
@@ -168,10 +217,22 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
+
+            .lightbox-close {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
     <div class="container">
         <a href="index.html" class="back-button">
             ← Back to Categories
@@ -183,10 +244,9 @@
         </header>
 
         <div class="gallery">
-            <!-- REPLACE these placeholder images with your actual embroidery photos -->
             
             <div class="gallery-item">
-                <a href="Gallery/photo-stitching-1.jpg" target="_blank">
+                <a onclick="openLightbox('Gallery/photo-stitching-1.jpg')">
                     <img src="Gallery/photo-stitching-1.jpg" alt="Photo Embroidery Work">
                 </a>
                 <div class="item-description">
@@ -194,15 +254,58 @@
                     <div class="item-details">Custom embroidered photo • 2024</div>
                 </div>
             </div>
-            
+
+            <div class="gallery-item">
+                <a onclick="openLightbox('Gallery/birthday-crown-1.jpg')">
+                    <img src="Gallery/birthday-crown-1.jpg" alt="Birthday Crown">
+                </a>
+                <div class="item-description">
+                    <div class="item-title">Birthday Crown</div>
+                    <div class="item-details">Handmade birthday keepsake</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <a onclick="openLightbox('Gallery/birthday-crown-2.jpg')">
+                    <img src="Gallery/birthday-crown-2.jpg" alt="Birthday Crown">
+                </a>
+                <div class="item-description">
+                    <div class="item-title">Another Birthday Crown</div>
+                    <div class="item-details">Custom design with name</div>
+                </div>
+            </div>
+
+        </div>
+
         <div class="telegram-cta">
             <h2>Want to See More?</h2>
-            <p>Join my Telegram channel for exclusive works, work-in-progress updates, and special offers!</p>
-            <a href="https://t.me/yourusername" class="telegram-button">
+            <p>Join my Telegram for exclusive works, work-in-progress updates, and special offers!</p>
+            <a href="https://t.me/thecathandstitcher" class="telegram-button">
                 <span style="font-size: 1.3em;">✈️</span>
-                Join My Telegram Channel
+                Message Me on Telegram
             </a>
         </div>
     </div>
+
+    <script>
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
