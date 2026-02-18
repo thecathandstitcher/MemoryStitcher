@@ -27,6 +27,36 @@
             padding: 40px;
         }
 
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lang-button {
+            padding: 8px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        .lang-button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .lang-button.active {
+            background: #667eea;
+            color: white;
+        }
+
         header {
             text-align: center;
             margin-bottom: 40px;
@@ -53,6 +83,10 @@
             color: #4a5568;
             line-height: 1.8;
             font-size: 1.1em;
+        }
+
+        .intro p {
+            margin-bottom: 15px;
         }
 
         .categories-title {
@@ -215,6 +249,20 @@
             background: linear-gradient(135deg, #006699 0%, #0088cc 100%);
         }
 
+        /* Hide inactive language */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: inline;
+        }
+
+        .intro.lang-content.active,
+        .categories-title.lang-content.active {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -236,12 +284,20 @@
 </head>
 <body>
     <div class="container">
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="lang-button active" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button" onclick="switchLanguage('it')">Italiano</button>
+        </div>
+
         <header>
-            <h1>Cat Hand</h1>
-            <p class="tagline">Memory Stitcher & Workshops</p>
+            <h1>🐱 Cat Hand</h1>
+            <p class="tagline lang-content lang-en active">Memory Stitcher & Workshops</p>
+            <p class="tagline lang-content lang-it">Ricami di Memoria & Laboratori</p>
         </header>
 
-        <div class="intro">
+        <!-- ENGLISH VERSION -->
+        <div class="intro lang-content lang-en active">
             <p>Welcome to Cat Hand!</p>
             
             <p>Every memory you cherish deserves to become something you can hold, display, and pass down through generations.</p>
@@ -255,88 +311,175 @@
             <p>Ready to preserve what matters most?</p>
         </div>
 
-        <h2 class="categories-title">Browse My Collections</h2>
+        <!-- ITALIAN VERSION -->
+        <div class="intro lang-content lang-it">
+            <p>Benvenuto a Cat Hand!</p>
+            
+            <p>Ogni ricordo che custodisci merita di diventare qualcosa che puoi tenere, esporre e tramandare attraverso le generazioni.</p>
+            
+            <p>Non ricamo soltanto - ascolto. Raccontami della foto che riempie il tuo cuore, del traguardo che vuoi onorare, o della tradizione familiare che vuoi preservare.</p>
+            
+            <p>Insieme, creeremo un pezzo fatto a mano che è unicamente tuo.</p>
+            
+            <p>Dal ricamo fotografico alle corone di compleanno, dai ricordi di laurea ai cimeli di famiglia - ogni creazione inizia con la tua storia e la nostra collaborazione.</p>
+            
+            <p>Pronto a preservare ciò che conta di più?</p>
+        </div>
+
+        <h2 class="categories-title lang-content lang-en active">Browse My Collections</h2>
+        <h2 class="categories-title lang-content lang-it">Esplora le Mie Collezioni</h2>
 
         <div class="categories">
             <!-- Category 1: Photo Embroidery -->
             <a href="photo-embroidery.html" class="category-card">
                 <span class="category-icon">📸</span>
-                <div class="category-title">Photo Embroidery</div>
-                <div class="category-description">
+                <div class="category-title lang-content lang-en active">Photo Embroidery</div>
+                <div class="category-title lang-content lang-it">Ricamo Fotografico</div>
+                <div class="category-description lang-content lang-en active">
                     Transform your favorite photos into beautiful embroidered keepsakes
                 </div>
-                <div class="category-count">View gallery</div>
+                <div class="category-description lang-content lang-it">
+                    Trasforma le tue foto preferite in bellissimi ricordi ricamati
+                </div>
+                <div class="category-count lang-content lang-en active">View gallery</div>
+                <div class="category-count lang-content lang-it">Vedi galleria</div>
             </a>
 
             <!-- Category 2: Birthday & Celebrations -->
             <a href="celebrations.html" class="category-card">
                 <span class="category-icon">🎂</span>
-                <div class="category-title">Birthday & Celebrations</div>
-                <div class="category-description">
+                <div class="category-title lang-content lang-en active">Birthday & Celebrations</div>
+                <div class="category-title lang-content lang-it">Compleanni e Feste</div>
+                <div class="category-description lang-content lang-en active">
                     Birthday crowns for toddlers and special milestone keepsakes
                 </div>
-                <div class="category-count">View gallery</div>
+                <div class="category-description lang-content lang-it">
+                    Corone di compleanno per bambini e ricordi speciali
+                </div>
+                <div class="category-count lang-content lang-en active">View gallery</div>
+                <div class="category-count lang-content lang-it">Vedi galleria</div>
             </a>
 
             <!-- Category 3: Custom Gifts -->
             <a href="custom-gifts.html" class="category-card">
                 <span class="category-icon">🎁</span>
-                <div class="category-title">Custom Gifts</div>
-                <div class="category-description">
+                <div class="category-title lang-content lang-en active">Custom Gifts</div>
+                <div class="category-title lang-content lang-it">Regali Personalizzati</div>
+                <div class="category-description lang-content lang-en active">
                     Personalized tote bags, pouches, and meaningful gifts for loved ones
                 </div>
-                <div class="category-count">View gallery</div>
+                <div class="category-description lang-content lang-it">
+                    Borse, pochette personalizzate e regali significativi per i tuoi cari
+                </div>
+                <div class="category-count lang-content lang-en active">View gallery</div>
+                <div class="category-count lang-it">Vedi galleria</div>
             </a>
 
             <!-- Category 4: Home & Family -->
             <a href="home-family.html" class="category-card">
                 <span class="category-icon">🏠</span>
-                <div class="category-title">Home & Family</div>
-                <div class="category-description">
+                <div class="category-title lang-content lang-en active">Home & Family</div>
+                <div class="category-title lang-content lang-it">Casa e Famiglia</div>
+                <div class="category-description lang-content lang-en active">
                     Tablecloths, pillows, and home decor to cherish family moments
                 </div>
-                <div class="category-count">View gallery</div>
+                <div class="category-description lang-content lang-it">
+                    Tovaglie, cuscini e decorazioni per custodire i momenti di famiglia
+                </div>
+                <div class="category-count lang-content lang-en active">View gallery</div>
+                <div class="category-count lang-content lang-it">Vedi galleria</div>
             </a>
 
             <!-- Category 5: Graduation & Milestones -->
             <a href="milestones.html" class="category-card">
                 <span class="category-icon">🎓</span>
-                <div class="category-title">Graduation & Milestones</div>
-                <div class="category-description">
+                <div class="category-title lang-content lang-en active">Graduation & Milestones</div>
+                <div class="category-title lang-content lang-it">Laurea e Traguardi</div>
+                <div class="category-description lang-content lang-en active">
                     Commemorative pieces for graduations and life achievements
                 </div>
-                <div class="category-count">View gallery</div>
+                <div class="category-description lang-content lang-it">
+                    Pezzi commemorativi per lauree e traguardi della vita
+                </div>
+                <div class="category-count lang-content lang-en active">View gallery</div>
+                <div class="category-count lang-content lang-it">Vedi galleria</div>
             </a>
 
             <!-- Category 6: Workshops -->
             <a href="workshops.html" class="category-card">
                 <span class="category-icon">✂️</span>
-                <div class="category-title">Workshops</div>
-                <div class="category-description">
+                <div class="category-title lang-content lang-en active">Workshops</div>
+                <div class="category-title lang-content lang-it">Laboratori</div>
+                <div class="category-description lang-content lang-en active">
                     Learn embroidery with us - classes for all skill levels
                 </div>
-                <div class="category-count">Learn more</div>
+                <div class="category-description lang-content lang-it">
+                    Impara il ricamo con noi - corsi per tutti i livelli
+                </div>
+                <div class="category-count lang-content lang-en active">Learn more</div>
+                <div class="category-count lang-content lang-it">Scopri di più</div>
             </a>
         </div>
 
         <div class="social-section">
-            <h2>Let's Connect!</h2>
-            <p>Let's stitch your story together - message me on Telegram</p>
+            <h2 class="lang-content lang-en active">Let's Connect!</h2>
+            <h2 class="lang-content lang-it">Connettiamoci!</h2>
+            
+            <p class="lang-content lang-en active">Let's stitch your story together - message me on Telegram</p>
+            <p class="lang-content lang-it">Cuciamo insieme la tua storia - scrivimi su Telegram</p>
             
             <div class="social-buttons">
-                <!-- TELEGRAM LINK - Replace with your actual Telegram link -->
                 <a href="https://t.me/thecathandstitcher" class="social-button telegram-button">
                     <span class="icon">✈️</span>
-                    Join My Telegram
+                    <span class="lang-content lang-en active">Join My Telegram</span>
+                    <span class="lang-content lang-it">Contattami su Telegram</span>
                 </a>
 
-                <!-- Optional: Other social links -->
                 <a href="mailto:thecathandstitcher@gmail.com" class="social-button">
                     <span class="icon">📧</span>
-                    Email Me
+                    <span class="lang-content lang-en active">Email Me</span>
+                    <span class="lang-content lang-it">Scrivimi</span>
                 </a>
             </div>
         </div>
     </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // Remove active class from all language contents
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Remove active class from all language buttons
+            document.querySelectorAll('.lang-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active class to selected language
+            if (lang === 'en') {
+                document.querySelectorAll('.lang-en').forEach(el => {
+                    el.classList.add('active');
+                });
+                document.querySelectorAll('.lang-button')[0].classList.add('active');
+            } else if (lang === 'it') {
+                document.querySelectorAll('.lang-it').forEach(el => {
+                    el.classList.add('active');
+                });
+                document.querySelectorAll('.lang-button')[1].classList.add('active');
+            }
+
+            // Save language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            }
+        });
+    </script>
 </body>
 </html>
