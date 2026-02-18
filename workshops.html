@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops - Cat Hand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #5568d3;
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .workshop-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .workshop-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .workshop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .workshop-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .workshop-title {
+            font-size: 1.5em;
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .workshop-description {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .workshop-details {
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .contact-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .telegram-button {
+            background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+            color: white;
+        }
+
+        .telegram-button:hover {
+            background: linear-gradient(135deg, #006699 0%, #0088cc 100%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .workshops-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">
+            ← Back to Home
+        </a>
+
+        <header>
+            <h1>✂️ Workshops</h1>
+            <p class="subtitle">Learn the art of embroidery with Cat Hand</p>
+        </header>
+
+        <div class="workshop-intro">
+            <p>Join our hands-on embroidery workshops and learn to create your own memory keepsakes! 
+            Whether you're a complete beginner or looking to refine your skills, 
+            our friendly classes will guide you through techniques to preserve your precious moments in thread.</p>
+        </div>
+
+        <div class="workshops-grid">
+            
+            <div class="workshop-card">
+                <span class="workshop-icon">🌸</span>
+                <div class="workshop-title">Beginner Embroidery</div>
+                <div class="workshop-description">
+                    Perfect for those new to embroidery! Learn basic stitches, how to transfer designs, 
+                    and create your first embroidered piece to take home.
+                </div>
+                <div class="workshop-details">
+                    Duration: 3 hours<br>
+                    All materials included
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">📸</span>
+                <div class="workshop-title">Photo Embroidery</div>
+                <div class="workshop-description">
+                    Transform your favorite photos into embroidered art! Learn the technique of 
+                    stitching over printed images to create unique keepsakes.
+                </div>
+                <div class="workshop-details">
+                    Duration: 4 hours<br>
+                    Bring your own photo
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🎂</span>
+                <div class="workshop-title">Birthday Crown Workshop</div>
+                <div class="workshop-description">
+                    Create a personalized birthday crown for your little one! 
+                    Perfect for moms wanting to make a special keepsake.
+                </div>
+                <div class="workshop-details">
+                    Duration: 2.5 hours<br>
+                    Customize with name & age
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🎁</span>
+                <div class="workshop-title">Custom Gift Making</div>
+                <div class="workshop-description">
+                    Learn to embroider personalized gifts like tote bags, pouches, and pillows. 
+                    Perfect for creating meaningful presents for loved ones.
+                </div>
+                <div class="workshop-details">
+                    Duration: 3.5 hours<br>
+                    Choose your project
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">🏠</span>
+                <div class="workshop-title">Home Decor Embroidery</div>
+                <div class="workshop-description">
+                    Embellish tablecloths, napkins, and pillowcases with beautiful embroidery. 
+                    Create heirlooms for your family to cherish.
+                </div>
+                <div class="workshop-details">
+                    Duration: 4 hours<br>
+                    Intermediate level
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <span class="workshop-icon">👥</span>
+                <div class="workshop-title">Private Group Sessions</div>
+                <div class="workshop-description">
+                    Book a private workshop for your friends, family, or team! 
+                    Perfect for parties, team building, or special occasions.
+                </div>
+                <div class="workshop-details">
+                    Flexible duration<br>
+                    Min. 4 people
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contact-section">
+            <h2>Interested in Joining a Workshop?</h2>
+            <p>Contact us to learn about upcoming dates and book your spot!</p>
+            
+            <div class="contact-buttons">
+                <a href="https://t.me/yourusername" class="contact-button telegram-button">
+                    <span style="font-size: 1.3em;">✈️</span>
+                    Message on Telegram
+                </a>
+
+                <a href="mailto:your.email@example.com" class="contact-button">
+                    <span style="font-size: 1.3em;">📧</span>
+                    Email Us
+                </a>
+
+                <a href="https://wa.me/1234567890" class="contact-button">
+                    <span style="font-size: 1.3em;">💬</span>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

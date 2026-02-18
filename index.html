@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Hand - Memory Stitcher and Workshops</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #718096;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .categories-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #2d3748;
+            margin-bottom: 30px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .category-description {
+            font-size: 0.95em;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .category-count {
+            margin-top: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        /* Different gradient colors for variety */
+        .category-card:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .category-card:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .category-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .category-card:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .category-card:nth-child(5) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .category-card:nth-child(6) {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .social-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .social-section h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .social-section p {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .social-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .social-button .icon {
+            font-size: 1.3em;
+        }
+
+        /* Special styling for Telegram button */
+        .telegram-button {
+            background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+            color: white;
+        }
+
+        .telegram-button:hover {
+            background: linear-gradient(135deg, #006699 0%, #0088cc 100%);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐱 Cat Hand</h1>
+            <p class="tagline">Memory Stitcher and Workshops</p>
+        </header>
+
+        <div class="intro">
+            <p>Welcome to Cat Hand! We preserve your precious memories through the art of embroidery. 
+            From photo embroidery to birthday crowns, graduation tote bags to family tablecloths - 
+            each piece is handcrafted to keep your special moments alive forever. 
+            Explore our collections below or join our workshops to learn the craft yourself!</p>
+        </div>
+
+        <h2 class="categories-title">Browse My Collections</h2>
+
+        <div class="categories">
+            <!-- Category 1: Photo Embroidery -->
+            <a href="photo-embroidery.html" class="category-card">
+                <span class="category-icon">📸</span>
+                <div class="category-title">Photo Embroidery</div>
+                <div class="category-description">
+                    Transform your favorite photos into beautiful embroidered keepsakes
+                </div>
+                <div class="category-count">View gallery</div>
+            </a>
+
+            <!-- Category 2: Birthday & Celebrations -->
+            <a href="celebrations.html" class="category-card">
+                <span class="category-icon">🎂</span>
+                <div class="category-title">Birthday & Celebrations</div>
+                <div class="category-description">
+                    Birthday crowns for toddlers and special milestone keepsakes
+                </div>
+                <div class="category-count">View gallery</div>
+            </a>
+
+            <!-- Category 3: Custom Gifts -->
+            <a href="custom-gifts.html" class="category-card">
+                <span class="category-icon">🎁</span>
+                <div class="category-title">Custom Gifts</div>
+                <div class="category-description">
+                    Personalized tote bags, pouches, and meaningful gifts for loved ones
+                </div>
+                <div class="category-count">View gallery</div>
+            </a>
+
+            <!-- Category 4: Home & Family -->
+            <a href="home-family.html" class="category-card">
+                <span class="category-icon">🏠</span>
+                <div class="category-title">Home & Family</div>
+                <div class="category-description">
+                    Tablecloths, pillows, and home decor to cherish family moments
+                </div>
+                <div class="category-count">View gallery</div>
+            </a>
+
+            <!-- Category 5: Graduation & Milestones -->
+            <a href="milestones.html" class="category-card">
+                <span class="category-icon">🎓</span>
+                <div class="category-title">Graduation & Milestones</div>
+                <div class="category-description">
+                    Commemorative pieces for graduations and life achievements
+                </div>
+                <div class="category-count">View gallery</div>
+            </a>
+
+            <!-- Category 6: Workshops -->
+            <a href="workshops.html" class="category-card">
+                <span class="category-icon">✂️</span>
+                <div class="category-title">Workshops</div>
+                <div class="category-description">
+                    Learn embroidery with us - classes for all skill levels
+                </div>
+                <div class="category-count">Learn more</div>
+            </a>
+        </div>
+
+        <div class="social-section">
+            <h2>Let's Connect!</h2>
+            <p>Join my Telegram channel for updates, behind-the-scenes content, and exclusive offers</p>
+            
+            <div class="social-buttons">
+                <!-- TELEGRAM LINK - Replace with your actual Telegram link -->
+                <a href="https://t.me/yourusername" class="social-button telegram-button">
+                    <span class="icon">✈️</span>
+                    Join My Telegram
+                </a>
+
+                <!-- Optional: Other social links -->
+                <a href="mailto:your.email@example.com" class="social-button">
+                    <span class="icon">📧</span>
+                    Email Me
+                </a>
+
+                <a href="https://instagram.com/yourusername" class="social-button">
+                    <span class="icon">📷</span>
+                    Instagram
+                </a>
+
+                <a href="https://wa.me/1234567890" class="social-button">
+                    <span class="icon">💬</span>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

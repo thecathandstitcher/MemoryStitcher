@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Embroidery - Cat Hand</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+
+        /* Back button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #5568d3;
+            transform: translateX(-5px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #f7fafc;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-description {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .item-title {
+            font-size: 1.2em;
+            color: #2d3748;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .item-details {
+            color: #718096;
+            font-size: 0.95em;
+        }
+
+        /* Placeholder for images */
+        .placeholder-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .telegram-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .telegram-cta h2 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .telegram-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 40px;
+            background: white;
+            color: #0088cc;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .telegram-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">
+            ← Back to Categories
+        </a>
+
+        <header>
+            <h1>📸 Photo Embroidery</h1>
+            <p class="subtitle">Your cherished photos transformed into embroidered keepsakes</p>
+        </header>
+
+        <div class="gallery">
+            <!-- REPLACE these placeholder images with your actual embroidery photos -->
+            
+            <div class="gallery-item">
+                <div class="placeholder-image" style="height: 300px;">
+                    Replace with<br>photo-embroidery-1.jpg
+                </div>
+                <div class="item-description">
+                    <div class="item-title">Family Portrait</div>
+                    <div class="item-details">Photo embroidered on linen • 2024</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="placeholder-image" style="height: 300px;">
+                    Replace with<br>photo-embroidery-2.jpg
+                </div>
+                <div class="item-description">
+                    <div class="item-title">Wedding Memory</div>
+                    <div class="item-details">Custom portrait • Framed</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="placeholder-image" style="height: 300px;">
+                    Replace with<br>photo-embroidery-3.jpg
+                </div>
+                <div class="item-description">
+                    <div class="item-title">Baby's First Photo</div>
+                    <div class="item-details">Newborn keepsake • Cotton thread</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="placeholder-image" style="height: 300px;">
+                    Replace with<br>photo-embroidery-4.jpg
+                </div>
+                <div class="item-description">
+                    <div class="item-title">Pet Memorial</div>
+                    <div class="item-details">In loving memory • 2023</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="placeholder-image" style="height: 300px;">
+                    Replace with<br>photo-embroidery-5.jpg
+                </div>
+                <div class="item-description">
+                    <div class="item-title">Childhood Memory</div>
+                    <div class="item-details">Vintage photo recreated • Silk on silk</div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <div class="placeholder-image" style="height: 300px;">
+                    Replace with<br>photo-embroidery-6.jpg
+                </div>
+                <div class="item-description">
+                    <div class="item-title">Anniversary Gift</div>
+                    <div class="item-details">50 years together • Mixed threads</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="telegram-cta">
+            <h2>Want to See More?</h2>
+            <p>Join my Telegram channel for exclusive works, work-in-progress updates, and special offers!</p>
+            <a href="https://t.me/yourusername" class="telegram-button">
+                <span style="font-size: 1.3em;">✈️</span>
+                Join My Telegram Channel
+            </a>
+        </div>
+    </div>
+</body>
+</html>
